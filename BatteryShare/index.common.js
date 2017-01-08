@@ -1,15 +1,14 @@
 
-'use strict';
 import React, { Component } from 'react';
 import {
   AppRegistry,
   StyleSheet,
   Text,
   View,
-  DeviceEventEmitter,
 } from 'react-native';
-
 import { RNBatteryStatus } from 'NativeModules';
+
+import firebase from './firebaseConnector';
 
 function parseBatteryLevel(successMsg) {
   return parseFloat(
@@ -23,7 +22,7 @@ class RCTBattery extends Component {
     this.state = {
       batteryLevel: undefined,
       errorMessage: undefined,
-    }
+    };
   }
 
   componentDidMount() {
@@ -33,19 +32,19 @@ class RCTBattery extends Component {
       console.log('Called setBatteryLevel ', batteryLevel, errorMessage);
       this.setState({
         batteryLevel,
-        errorMessage
+        errorMessage,
       }, () => console.log(this.state));
     };
 
     RNBatteryStatus.batteryStatus(
-      "getLevel", // getLevel, turnOff
-      function errorCallback(results) {
-        setBatteryLevel(undefined);
-        console.log('JS Error: ', results);
+      'getLevel', // getLevel, turnOff
+      (errorResults) => {
+        setBatteryLevel(undefined, errorResults.errMsg);
+        console.log('JS Error: ', errorResults);
       },
-      function successCallback(results) {
-        setBatteryLevel(parseBatteryLevel(results.successMsg));
-        console.log('JS Success: ', results);
+      (successResults) => {
+        setBatteryLevel(parseBatteryLevel(successResults.successMsg));
+        console.log('JS Success: ', successResults);
       }
     );
   }
@@ -67,9 +66,10 @@ class RCTBattery extends Component {
   }
 }
 
-var styles = StyleSheet.create({
+let styles = StyleSheet.create({
   container: {
     flex: 1,
+    padding: 8,
     justifyContent: 'space-around',
     alignItems: 'center',
     backgroundColor: 'transparent',
@@ -77,4 +77,4 @@ var styles = StyleSheet.create({
 });
 
 AppRegistry.registerComponent('BatteryShare', () => RCTBattery);
-  
+
