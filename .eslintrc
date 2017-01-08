@@ -1,0 +1,13 @@
+{
+	"plugins": [
+		"flow-bars"
+	],
+	"rules":{
+		"react/jsx-filename-extension": "off"
+	},
+	"parser": "babel-eslint",
+	"extends": "airbnb",
+	"env": {
+		"node": true
+	}
+}
