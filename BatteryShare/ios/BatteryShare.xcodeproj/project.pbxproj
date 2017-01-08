@@ -23,6 +23,8 @@
 		5E9157361DD0AC6A00FF2AA8 /* libRCTAnimation.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 5E9157331DD0AC6500FF2AA8 /* libRCTAnimation.a */; };
 		832341BD1AAA6AB300B99B32 /* libRCTText.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 832341B51AAA6A8300B99B32 /* libRCTText.a */; };
 		C929618E1E22D9B1007BC419 /* libRNBatteryStatus.a in Frameworks */ = {isa = PBXBuildFile; fileRef = C929618B1E22D9A4007BC419 /* libRNBatteryStatus.a */; };
+		C9BA1C1F1E22FDA0008BD855 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = C9BA1C1E1E22FDA0008BD855 /* GoogleService-Info.plist */; };
+		F2D96169AA9EEEB6948C1049 /* libPods-BatteryShare.a in Frameworks */ = {isa = PBXBuildFile; fileRef = B14ABF940D2109E3DC4D6C66 /* libPods-BatteryShare.a */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -236,10 +238,14 @@
 		13B07FB61A68108700A75B9A /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = Info.plist; path = BatteryShare/Info.plist; sourceTree = "<group>"; };
 		13B07FB71A68108700A75B9A /* main.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = main.m; path = BatteryShare/main.m; sourceTree = "<group>"; };
 		146833FF1AC3E56700842450 /* React.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = React.xcodeproj; path = "../node_modules/react-native/React/React.xcodeproj"; sourceTree = "<group>"; };
+		57E40208AEEB9D120494A167 /* Pods-BatteryShare.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-BatteryShare.release.xcconfig"; path = "Pods/Target Support Files/Pods-BatteryShare/Pods-BatteryShare.release.xcconfig"; sourceTree = "<group>"; };
 		5E91572D1DD0AC6500FF2AA8 /* RCTAnimation.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = RCTAnimation.xcodeproj; path = "../node_modules/react-native/Libraries/NativeAnimation/RCTAnimation.xcodeproj"; sourceTree = "<group>"; };
 		78C398B01ACF4ADC00677621 /* RCTLinking.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = RCTLinking.xcodeproj; path = "../node_modules/react-native/Libraries/LinkingIOS/RCTLinking.xcodeproj"; sourceTree = "<group>"; };
+		7DF27042BD2910E9D2DCF0D1 /* Pods-BatteryShare.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-BatteryShare.debug.xcconfig"; path = "Pods/Target Support Files/Pods-BatteryShare/Pods-BatteryShare.debug.xcconfig"; sourceTree = "<group>"; };
 		832341B01AAA6A8300B99B32 /* RCTText.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = RCTText.xcodeproj; path = "../node_modules/react-native/Libraries/Text/RCTText.xcodeproj"; sourceTree = "<group>"; };
+		B14ABF940D2109E3DC4D6C66 /* libPods-BatteryShare.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-BatteryShare.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		C92961851E22D9A4007BC419 /* RNBatteryStatus.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = RNBatteryStatus.xcodeproj; path = "../node_modules/react-native-battery-status-ios/RNBatteryStatus.xcodeproj"; sourceTree = "<group>"; };
+		C9BA1C1E1E22FDA0008BD855 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -259,6 +265,7 @@
 				00C302EA1ABCBA2D00DB3ED1 /* libRCTVibration.a in Frameworks */,
 				139FDEF61B0652A700C62182 /* libRCTWebSocket.a in Frameworks */,
 				C929618E1E22D9B1007BC419 /* libRNBatteryStatus.a in Frameworks */,
+				F2D96169AA9EEEB6948C1049 /* libPods-BatteryShare.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -324,6 +331,14 @@
 			name = "Supporting Files";
 			sourceTree = "<group>";
 		};
+		08C660E93D42E70CFC627E08 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				B14ABF940D2109E3DC4D6C66 /* libPods-BatteryShare.a */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 		139105B71AF99BAD00B5F7CC /* Products */ = {
 			isa = PBXGroup;
 			children = (
@@ -345,6 +360,7 @@
 		13B07FAE1A68108700A75B9A /* BatteryShare */ = {
 			isa = PBXGroup;
 			children = (
+				C9BA1C1E1E22FDA0008BD855 /* GoogleService-Info.plist */,
 				008F07F21AC5B25A0029DE68 /* main.jsbundle */,
 				13B07FAF1A68108700A75B9A /* AppDelegate.h */,
 				13B07FB01A68108700A75B9A /* AppDelegate.m */,
@@ -369,6 +385,15 @@
 				3DAD3EAF1DF850E9000B6D8A /* libjschelpers.a */,
 			);
 			name = Products;
+			sourceTree = "<group>";
+		};
+		1BE6BEFE67D4AA5D46CE7A85 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				7DF27042BD2910E9D2DCF0D1 /* Pods-BatteryShare.debug.xcconfig */,
+				57E40208AEEB9D120494A167 /* Pods-BatteryShare.release.xcconfig */,
+			);
+			name = Pods;
 			sourceTree = "<group>";
 		};
 		5E91572E1DD0AC6500FF2AA8 /* Products */ = {
@@ -424,6 +449,8 @@
 				832341AE1AAA6A7D00B99B32 /* Libraries */,
 				00E356EF1AD99517003FC87E /* BatteryShareTests */,
 				83CBBA001A601CBA00E9B192 /* Products */,
+				1BE6BEFE67D4AA5D46CE7A85 /* Pods */,
+				08C660E93D42E70CFC627E08 /* Frameworks */,
 			);
 			indentWidth = 2;
 			sourceTree = "<group>";
@@ -453,10 +480,13 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 13B07F931A680F5B00A75B9A /* Build configuration list for PBXNativeTarget "BatteryShare" */;
 			buildPhases = (
+				9C7E91023EB2FCBDC52BBDD8 /* [CP] Check Pods Manifest.lock */,
 				13B07F871A680F5B00A75B9A /* Sources */,
 				13B07F8C1A680F5B00A75B9A /* Frameworks */,
 				13B07F8E1A680F5B00A75B9A /* Resources */,
 				00DD1BFF1BD5951E006B06BC /* Bundle React Native code and images */,
+				62785316C1939A425F28164F /* [CP] Embed Pods Frameworks */,
+				5133EEAA8E2DAD9695C725E7 /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -748,6 +778,7 @@
 			files = (
 				13B07FBF1A68108700A75B9A /* Images.xcassets in Resources */,
 				13B07FBD1A68108700A75B9A /* LaunchScreen.xib in Resources */,
+				C9BA1C1F1E22FDA0008BD855 /* GoogleService-Info.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -767,6 +798,51 @@
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
 			shellScript = "export NODE_BINARY=node\n../node_modules/react-native/packager/react-native-xcode.sh";
+		};
+		5133EEAA8E2DAD9695C725E7 /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-BatteryShare/Pods-BatteryShare-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		62785316C1939A425F28164F /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-BatteryShare/Pods-BatteryShare-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		9C7E91023EB2FCBDC52BBDD8 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
 		};
 /* End PBXShellScriptBuildPhase section */
 
@@ -797,6 +873,7 @@
 /* Begin XCBuildConfiguration section */
 		13B07F941A680F5B00A75B9A /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 7DF27042BD2910E9D2DCF0D1 /* Pods-BatteryShare.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CURRENT_PROJECT_VERSION = 1;
@@ -809,6 +886,7 @@
 					"-ObjC",
 					"-lc++",
 				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.reactiverobot.batteryshare;
 				PRODUCT_NAME = BatteryShare;
 				VERSIONING_SYSTEM = "apple-generic";
 			};
@@ -816,6 +894,7 @@
 		};
 		13B07F951A680F5B00A75B9A /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 57E40208AEEB9D120494A167 /* Pods-BatteryShare.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CURRENT_PROJECT_VERSION = 1;
@@ -827,6 +906,7 @@
 					"-ObjC",
 					"-lc++",
 				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.reactiverobot.batteryshare;
 				PRODUCT_NAME = BatteryShare;
 				VERSIONING_SYSTEM = "apple-generic";
 			};
