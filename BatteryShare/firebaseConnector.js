@@ -40,12 +40,12 @@ function storePhoneDataForUser(data) {
       .database()
       .ref('users')
       .child(getUser().uid)
-      .set(data));
+      .update(data));
 }
 
 const setBatteryLevel = (batteryLevel) => {
   console.log('Called setBatteryLevel ', batteryLevel);
-  storePhoneDataForUser({ batteryLevel })
+  storePhoneDataForUser({ batteryLevel, name: getUser().displayName })
     .catch(console.log);
 };
 
@@ -63,13 +63,16 @@ function readBatteryStatus() {
   );
 }
 
-firebaseApp.auth().onAuthStateChanged((user) => {
-  if (!user) {
-    firebaseApp.auth().signInAnonymously();
-  } else {
-    readBatteryStatus();
-  }
-});
+export function onInitialSignIn(handler) {
+  firebaseApp.auth().onAuthStateChanged((user) => {
+    if (!user) {
+      firebaseApp.auth().signInAnonymously();
+    } else {
+      handler(user);
+      readBatteryStatus();
+    }
+  });
+}
 
 export function storeName(name) {
   return isSignedIn()

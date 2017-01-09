@@ -9,7 +9,8 @@ import {
   View,
 } from 'react-native';
 
-import { storeName, listenToAllUserPhoneData } from './firebaseConnector';
+import { storeName, listenToAllUserPhoneData, onInitialSignIn }
+  from './firebaseConnector';
 
 let styles = StyleSheet.create({
   container: {
@@ -50,6 +51,8 @@ class RCTBattery extends Component {
 
     this.state = {
       users: {},
+      signInComplete: false,
+      myName: undefined,
     };
   }
 
@@ -59,14 +62,33 @@ class RCTBattery extends Component {
     };
 
     listenToAllUserPhoneData(storeUserState);
+
+    const setSignInComplete = (user) => {
+      console.log('DISPLAY NAME', user.displayName);
+      this.setState({
+        myName: user.displayName,
+        signInComplete: true,
+      }, () => console.log(this.state));
+    }
+
+    onInitialSignIn(setSignInComplete);
   }
 
   render() {
     console.log('Render.');
 
+    if (!this.state.signInComplete) {
+      return (
+        <View style={styles.container}>
+          <Text>Loading...</Text>
+        </View>
+      );
+    }
+
     return (
       <View style={styles.container}>
         <TextInput
+          defaultValue={this.state.myName}
           placeholder="Who are you?"
           style={{
             height: 100,
