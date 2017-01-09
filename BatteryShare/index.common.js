@@ -22,6 +22,34 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     backgroundColor: 'transparent',
   },
+  nameText: {
+    fontWeight: '300',
+    fontSize: 16,
+    textAlign: 'left',
+  },
+  percentageText: {
+    fontWeight: '100',
+    textAlign: 'center',
+    fontSize: 16,
+  },
+  percentage: {
+    width: 75,
+    backgroundColor: 'powderblue',
+    borderColor: 'black',
+    borderRadius: 2,
+    padding: 5,
+    borderRadius: 5
+  },
+  name: {
+    width: 400,
+    padding: 5,
+  },
+  info: {
+    flex: 1,
+    padding: 5,
+    flexDirection: 'row'
+  }
+
 });
 
 const storeNameSafely = newText => storeName(newText).catch(console.error);
@@ -36,9 +64,15 @@ class UserBatteryList extends Component {
         dataSource={ds.cloneWithRows(Object.keys(this.props.users))}
         renderRow={(uid) => {
           return (
-            <View key={uid} style={{ padding: 5 }}>
-              <Text>{this.props.users[uid].name}</Text>
-              <Text>{this.props.users[uid].batteryLevel}</Text>
+            <View key={uid} style={styles.info}>
+              <View style={styles.percentage}>
+                <Text style={styles.percentageText}>
+                  {this.props.users[uid].batteryLevel}
+                </Text>
+              </View>
+              <View style={styles.name}>
+                <Text style={styles.nameText}>{this.props.users[uid].name}</Text>
+              </View>
             </View>
            );
         }}

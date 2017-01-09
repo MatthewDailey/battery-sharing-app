@@ -5,7 +5,6 @@
 	};
 	objectVersion = 46;
 	objects = {
-
 /* Begin PBXBuildFile section */
 		00C302E51ABCBA2D00DB3ED1 /* libRCTActionSheet.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 00C302AC1ABCB8CE00DB3ED1 /* libRCTActionSheet.a */; };
 		00C302E71ABCBA2D00DB3ED1 /* libRCTGeolocation.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 00C302BA1ABCB90400DB3ED1 /* libRCTGeolocation.a */; };
@@ -28,6 +27,7 @@
 		C929618E1E22D9B1007BC419 /* libRNBatteryStatus.a in Frameworks */ = {isa = PBXBuildFile; fileRef = C929618B1E22D9A4007BC419 /* libRNBatteryStatus.a */; };
 		C9BA1C1F1E22FDA0008BD855 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = C9BA1C1E1E22FDA0008BD855 /* GoogleService-Info.plist */; };
 		F2D96169AA9EEEB6948C1049 /* libPods-BatteryShare.a in Frameworks */ = {isa = PBXBuildFile; fileRef = B14ABF940D2109E3DC4D6C66 /* libPods-BatteryShare.a */; };
+		CE36E046E98E42E9AE1A0694 /* libRCTMaterialKit.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 2D86D7117DFC44A2BB807C5A /* libRCTMaterialKit.a */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -275,6 +275,8 @@
 		C11E55801E230E7500294699 /* TSBackgroundFetch.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = TSBackgroundFetch.framework; path = "../node_modules/react-native-background-fetch/ios/RNBackgroundFetch/TSBackgroundFetch.framework"; sourceTree = "<group>"; };
 		C92961851E22D9A4007BC419 /* RNBatteryStatus.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = RNBatteryStatus.xcodeproj; path = "../node_modules/react-native-battery-status-ios/RNBatteryStatus.xcodeproj"; sourceTree = "<group>"; };
 		C9BA1C1E1E22FDA0008BD855 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		55433E4C76AB471C85E4885B /* RCTMaterialKit.xcodeproj */ = {isa = PBXFileReference; name = "RCTMaterialKit.xcodeproj"; path = "../node_modules/react-native-material-kit/iOS/RCTMaterialKit.xcodeproj"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = wrapper.pb-project; explicitFileType = undefined; includeInIndex = 0; };
+		2D86D7117DFC44A2BB807C5A /* libRCTMaterialKit.a */ = {isa = PBXFileReference; name = "libRCTMaterialKit.a"; path = "libRCTMaterialKit.a"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = archive.ar; explicitFileType = undefined; includeInIndex = 0; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -297,6 +299,7 @@
 				C929618E1E22D9B1007BC419 /* libRNBatteryStatus.a in Frameworks */,
 				F2D96169AA9EEEB6948C1049 /* libPods-BatteryShare.a in Frameworks */,
 				9D527B01C5364C99AF70638E /* libRNBatteryStatus.a in Frameworks */,
+				CE36E046E98E42E9AE1A0694 /* libRCTMaterialKit.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -463,6 +466,7 @@
 				00C302DF1ABCB9EE00DB3ED1 /* RCTVibration.xcodeproj */,
 				139FDEE61B06529A00C62182 /* RCTWebSocket.xcodeproj */,
 				000D871F357945B9AB13656C /* RNBatteryStatus.xcodeproj */,
+				55433E4C76AB471C85E4885B /* RCTMaterialKit.xcodeproj */,
 			);
 			name = Libraries;
 			sourceTree = "<group>";
@@ -977,6 +981,7 @@
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
 					"\"$(SRCROOT)/BatteryShare\"",
+					"\"$(SRCROOT)/BatteryShare\"",
 				);
 				OTHER_LDFLAGS = (
 					"$(inherited)",
@@ -1007,6 +1012,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
+					"\"$(SRCROOT)/BatteryShare\"",
 					"\"$(SRCROOT)/BatteryShare\"",
 				);
 				OTHER_LDFLAGS = (
