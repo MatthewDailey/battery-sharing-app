@@ -11,7 +11,7 @@ import {
 
 import BackgroundFetch from 'react-native-background-fetch';
 
-import { storeName, listenToAllUserPhoneData, onInitialSignIn }
+import { storeName, listenToAllUserPhoneData, onInitialSignIn, readBatteryAndStore }
   from './firebaseConnector';
 
 const styles = StyleSheet.create({
@@ -116,14 +116,14 @@ class RCTBattery extends Component {
     console.log('[app] Registering background callback.');
     BackgroundFetch.configure({
       stopOnTerminate: false,
-    }, function () {
+    }, () => {
       console.log('[js] Received background-fetch event');
-
+      readBatteryAndStore();
       // To signal completion of your task to iOS, you must call #finish!
       // If you fail to do this, iOS can kill your app.
       BackgroundFetch.finish();
-    }, function (error) {
-      console.log('[js] RNBackgroundFetch failed to start');
+    }, (error) => {
+      console.log('[js] RNBackgroundFetch failed to start', error);
     });
   }
 

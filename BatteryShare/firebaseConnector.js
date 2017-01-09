@@ -58,7 +58,7 @@ function readBatteryStatus() {
     RNBatteryStatus.batteryStatus(
       'getLevel', // getLevel, turnOff
       (errorResults) => {
-        setBatteryLevel('unknown');
+        setBatteryLevel(null);
         reject(errorResults);
       },
       (successResults) => {
