@@ -21,7 +21,6 @@ function getUser() {
 
 function isSignedIn() {
   return new Promise((resolve, reject) => {
-    console.log(getUser())
     if (getUser()) {
       resolve();
     } else {
@@ -41,14 +40,12 @@ function storePhoneDataForUser(data) {
       .database()
       .ref('users')
       .child(getUser().uid)
-      .set(data));
+      .update(data));
 }
 
 const setBatteryLevel = (batteryLevel) => {
   console.log('Called setBatteryLevel ', batteryLevel);
-  storePhoneDataForUser({
-    batteryLevel,
-  })
+  storePhoneDataForUser({ batteryLevel, name: getUser().displayName })
     .catch(console.log);
 };
 
@@ -66,10 +63,41 @@ function readBatteryStatus() {
   );
 }
 
-firebaseApp.auth().onAuthStateChanged((user) => {
-  if (!user) {
-    firebaseApp.auth().signInAnonymously();
-  } else {
-    readBatteryStatus();
-  }
-});
+export function onInitialSignIn(handler) {
+  firebaseApp.auth().onAuthStateChanged((user) => {
+    if (!user) {
+      firebaseApp.auth().signInAnonymously();
+    } else {
+      handler(user);
+      readBatteryStatus();
+    }
+  });
+}
+
+export function storeName(name) {
+  return isSignedIn()
+    .then(() => getUser().updateProfile({ displayName: name }))
+    .then(() => firebase
+      .database()
+      .ref('users')
+      .child(getUser().uid)
+      .update({ name }));
+}
+
+export function listenToAllUserPhoneData(handler) {
+  const listenForValueIgnoreEmpty = (snapshot) => {
+    if (snapshot && snapshot.exists()) {
+      handler(snapshot.val());
+    }
+  };
+
+  firebaseApp
+    .database()
+    .ref('users')
+    .on('value', listenForValueIgnoreEmpty);
+  return () => firebaseApp
+    .database()
+    .ref('users')
+    .off('child_added', listenForValueIgnoreEmpty);
+
+}
