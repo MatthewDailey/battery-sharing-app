@@ -73,3 +73,13 @@ firebaseApp.auth().onAuthStateChanged((user) => {
     readBatteryStatus();
   }
 });
+
+export function storeName(name) {
+  return isSignedIn()
+    .then(() => getUser().updateProfile({ displayName: name }))
+    .then(() => firebase
+      .database()
+      .ref('users')
+      .child(getUser().uid)
+      .update({ name }));
+}
