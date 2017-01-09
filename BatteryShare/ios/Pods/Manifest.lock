@@ -16,9 +16,28 @@ PODS:
   - GoogleSymbolUtilities (1.1.2)
   - GoogleUtilities (1.3.2):
     - GoogleSymbolUtilities (~> 1.1)
+  - React (0.40.0):
+    - React/Core (= 0.40.0)
+  - React/Core (0.40.0):
+    - React/cxxreact
+    - React/yoga
+  - React/cxxreact (0.40.0):
+    - React/jschelpers
+  - React/jschelpers (0.40.0)
+  - React/yoga (0.40.0)
+  - RNBackgroundFetch (1.0.2):
+    - React
 
 DEPENDENCIES:
   - Firebase/Core
+  - React (from `../node_modules/react-native`)
+  - RNBackgroundFetch (from `../node_modules/react-native-background-fetch`)
+
+EXTERNAL SOURCES:
+  React:
+    :path: "../node_modules/react-native"
+  RNBackgroundFetch:
+    :path: "../node_modules/react-native-background-fetch"
 
 SPEC CHECKSUMS:
   Firebase: be473484f0d515e72ffd04acf22f981773c23e58
@@ -28,7 +47,9 @@ SPEC CHECKSUMS:
   GoogleInterchangeUtilities: d5bc4d88d5b661ab72f9d70c58d02ca8c27ad1f7
   GoogleSymbolUtilities: 631ee17048aa5e9ab133470d768ea997a5ef9b96
   GoogleUtilities: 8bbc733218aad26306f9d4a253823986110e3358
+  React: 6dfb2f72edb1d74a800127ae157af038646673ce
+  RNBackgroundFetch: 6994bd4901c32f052537b8e7f69b1f5d9c0700ac
 
-PODFILE CHECKSUM: 31ba807c4e10c713937b448525415ba8b7395b3d
+PODFILE CHECKSUM: f374261de4bbf6a50d8647ba41ba7bf4f6592bad
 
 COCOAPODS: 1.1.1

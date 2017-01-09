@@ -4,5 +4,7 @@
 target 'BatteryShare' do
 
   pod 'Firebase/Core'
+  pod 'React', :path => '../node_modules/react-native'
+  pod 'RNBackgroundFetch', :path => '../node_modules/react-native-background-fetch'
 
 end
