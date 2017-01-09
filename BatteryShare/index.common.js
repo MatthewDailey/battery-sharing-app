@@ -20,6 +20,8 @@ let styles = StyleSheet.create({
   },
 });
 
+const storeNameSafely = newText => storeName(newText).catch(console.error);
+
 class RCTBattery extends Component {
   render() {
     console.log('Render.');
@@ -32,7 +34,7 @@ class RCTBattery extends Component {
             height: 30,
             textAlign: 'center',
           }}
-          onChangeText={storeName}
+          onChangeText={storeNameSafely}
         />
         <Text>
           Hello

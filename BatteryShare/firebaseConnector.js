@@ -46,9 +46,7 @@ function storePhoneDataForUser(data) {
 
 const setBatteryLevel = (batteryLevel) => {
   console.log('Called setBatteryLevel ', batteryLevel);
-  storePhoneDataForUser({
-    batteryLevel,
-  })
+  storePhoneDataForUser({ batteryLevel })
     .catch(console.log);
 };
 
