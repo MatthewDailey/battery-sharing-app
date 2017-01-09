@@ -8,7 +8,7 @@ import {
   View,
 } from 'react-native';
 
-import { storeName } from './firebaseConnector';
+import { storeName, listenToAllUserPhoneData } from './firebaseConnector';
 
 let styles = StyleSheet.create({
   container: {
@@ -23,6 +23,22 @@ let styles = StyleSheet.create({
 const storeNameSafely = newText => storeName(newText).catch(console.error);
 
 class RCTBattery extends Component {
+  constructor(props) {
+    super(props);
+
+    this.state = {
+      users: {},
+    };
+  }
+
+  componentDidMount() {
+    const storeUserState = (users) => {
+      this.setState({ users }, () => console.log(this.state));
+    };
+
+    listenToAllUserPhoneData(storeUserState);
+  }
+
   render() {
     console.log('Render.');
 

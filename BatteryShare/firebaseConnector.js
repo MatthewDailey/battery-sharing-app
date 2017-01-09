@@ -21,7 +21,6 @@ function getUser() {
 
 function isSignedIn() {
   return new Promise((resolve, reject) => {
-    console.log(getUser())
     if (getUser()) {
       resolve();
     } else {
@@ -80,4 +79,22 @@ export function storeName(name) {
       .ref('users')
       .child(getUser().uid)
       .update({ name }));
+}
+
+export function listenToAllUserPhoneData(handler) {
+  const listenForValueIgnoreEmpty = (snapshot) => {
+    if (snapshot && snapshot.exists()) {
+      handler(snapshot.val());
+    }
+  };
+
+  firebaseApp
+    .database()
+    .ref('users')
+    .on('value', listenForValueIgnoreEmpty);
+  return () => firebaseApp
+    .database()
+    .ref('users')
+    .off('child_added', listenForValueIgnoreEmpty);
+
 }
