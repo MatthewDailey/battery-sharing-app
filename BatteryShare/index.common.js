@@ -9,6 +9,7 @@ import {
   View,
 } from 'react-native';
 
+
 import { storeName, listenToAllUserPhoneData, onInitialSignIn }
   from './firebaseConnector';
 
@@ -46,6 +47,22 @@ class UserBatteryList extends Component {
 }
 
 class RCTBattery extends Component {
+
+  backgroundCallback() {
+    console.log("[app] Registering background callback.");
+    BackgroundFetch.configure({
+      stopOnTerminate: false
+    }, function() {
+      console.log("[js] Received background-fetch event");
+
+      // To signal completion of your task to iOS, you must call #finish!
+      // If you fail to do this, iOS can kill your app.
+      BackgroundFetch.finish();
+    }, function(error) {
+      console.log("[js] RNBackgroundFetch failed to start");
+    });
+  }
+
   constructor(props) {
     super(props);
 
@@ -57,6 +74,7 @@ class RCTBattery extends Component {
   }
 
   componentDidMount() {
+    this.backgroundCallback()
     const storeUserState = (users) => {
       this.setState({ users }, () => console.log(this.state));
     };
@@ -103,4 +121,3 @@ class RCTBattery extends Component {
 }
 
 AppRegistry.registerComponent('BatteryShare', () => RCTBattery);
-
