@@ -50,17 +50,25 @@ const setBatteryLevel = (batteryLevel) => {
 };
 
 function readBatteryStatus() {
-  RNBatteryStatus.batteryStatus(
-    'getLevel', // getLevel, turnOff
-    (errorResults) => {
-      setBatteryLevel('unknown');
-      console.log('JS Error: ', errorResults);
-    },
-    (successResults) => {
-      setBatteryLevel(parseBatteryLevel(successResults.successMsg));
-      console.log('JS Success: ', successResults);
-    }
-  );
+  return new Promise((resolve, reject) => {
+    RNBatteryStatus.batteryStatus(
+      'getLevel', // getLevel, turnOff
+      (errorResults) => {
+        setBatteryLevel('unknown');
+        reject(errorResults);
+      },
+      (successResults) => {
+        setBatteryLevel(parseBatteryLevel(successResults.successMsg));
+        console.log('Read battery Success: ', successResults);
+        resolve(successResults);
+      }
+    );
+  });
+}
+
+export function readBatteryAndStore() {
+  return isSignedIn()
+    .then(() => readBatteryStatus());
 }
 
 export function onInitialSignIn(handler) {
@@ -69,7 +77,8 @@ export function onInitialSignIn(handler) {
       firebaseApp.auth().signInAnonymously();
     } else {
       handler(user);
-      readBatteryStatus();
+      readBatteryStatus()
+        .catch(console.log);
     }
   });
 }
