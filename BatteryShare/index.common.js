@@ -1,6 +1,7 @@
 
 import React, { Component } from 'react';
 import {
+  ListView,
   AppRegistry,
   StyleSheet,
   Text,
@@ -17,10 +18,31 @@ let styles = StyleSheet.create({
     justifyContent: 'space-around',
     alignItems: 'center',
     backgroundColor: 'transparent',
-  },
+  }
 });
 
 const storeNameSafely = newText => storeName(newText).catch(console.error);
+
+const ds = new ListView.DataSource({rowHasChanged: (r1, r2) => r1 !== r2});
+
+class UserBatteryList extends Component {
+  render() {
+    return (
+      <ListView
+        enableEmptySections
+        dataSource={ds.cloneWithRows(Object.keys(this.props.users))}
+        renderRow={(uid) => {
+          return (
+            <View key={uid} style={{ padding: 5 }}>
+              <Text>{this.props.users[uid].name}</Text>
+              <Text>{this.props.users[uid].batteryLevel}</Text>
+            </View>
+           );
+        }}
+      />
+    );
+  }
+}
 
 class RCTBattery extends Component {
   constructor(props) {
@@ -47,14 +69,12 @@ class RCTBattery extends Component {
         <TextInput
           placeholder="Who are you?"
           style={{
-            height: 30,
+            height: 100,
             textAlign: 'center',
           }}
           onChangeText={storeNameSafely}
         />
-        <Text>
-          Hello
-        </Text>
+        <UserBatteryList users={this.state.users} />
       </View>
     );
   }
