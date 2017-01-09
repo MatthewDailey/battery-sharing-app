@@ -9,23 +9,24 @@ import {
   View,
 } from 'react-native';
 
+import BackgroundFetch from 'react-native-background-fetch';
 
 import { storeName, listenToAllUserPhoneData, onInitialSignIn }
   from './firebaseConnector';
 
-let styles = StyleSheet.create({
+const styles = StyleSheet.create({
   container: {
     flex: 1,
     padding: 16,
     justifyContent: 'space-around',
     alignItems: 'center',
     backgroundColor: 'transparent',
-  }
+  },
 });
 
 const storeNameSafely = newText => storeName(newText).catch(console.error);
 
-const ds = new ListView.DataSource({rowHasChanged: (r1, r2) => r1 !== r2});
+const ds = new ListView.DataSource({ rowHasChanged: (r1, r2) => r1 !== r2 });
 
 class UserBatteryList extends Component {
   render() {
@@ -48,21 +49,6 @@ class UserBatteryList extends Component {
 
 class RCTBattery extends Component {
 
-  backgroundCallback() {
-    console.log("[app] Registering background callback.");
-    BackgroundFetch.configure({
-      stopOnTerminate: false
-    }, function() {
-      console.log("[js] Received background-fetch event");
-
-      // To signal completion of your task to iOS, you must call #finish!
-      // If you fail to do this, iOS can kill your app.
-      BackgroundFetch.finish();
-    }, function(error) {
-      console.log("[js] RNBackgroundFetch failed to start");
-    });
-  }
-
   constructor(props) {
     super(props);
 
@@ -74,7 +60,7 @@ class RCTBattery extends Component {
   }
 
   componentDidMount() {
-    this.backgroundCallback()
+    this.backgroundCallback();
     const storeUserState = (users) => {
       this.setState({ users }, () => console.log(this.state));
     };
@@ -87,9 +73,24 @@ class RCTBattery extends Component {
         myName: user.displayName,
         signInComplete: true,
       }, () => console.log(this.state));
-    }
+    };
 
     onInitialSignIn(setSignInComplete);
+  }
+
+  backgroundCallback() {
+    console.log('[app] Registering background callback.');
+    BackgroundFetch.configure({
+      stopOnTerminate: false,
+    }, function () {
+      console.log('[js] Received background-fetch event');
+
+      // To signal completion of your task to iOS, you must call #finish!
+      // If you fail to do this, iOS can kill your app.
+      BackgroundFetch.finish();
+    }, function (error) {
+      console.log('[js] RNBackgroundFetch failed to start');
+    });
   }
 
   render() {

@@ -22,6 +22,7 @@
 		146834051AC3E58100842450 /* libReact.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 146834041AC3E56700842450 /* libReact.a */; };
 		5E9157361DD0AC6A00FF2AA8 /* libRCTAnimation.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 5E9157331DD0AC6500FF2AA8 /* libRCTAnimation.a */; };
 		832341BD1AAA6AB300B99B32 /* libRCTText.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 832341B51AAA6A8300B99B32 /* libRCTText.a */; };
+		9D527B01C5364C99AF70638E /* libRNBatteryStatus.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 0040188E43904A839BD54C43 /* libRNBatteryStatus.a */; };
 		C11E557D1E230A3000294699 /* RNBackgroundFetch+AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = C11E557C1E230A3000294699 /* RNBackgroundFetch+AppDelegate.m */; };
 		C11E55811E230E7500294699 /* TSBackgroundFetch.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C11E55801E230E7500294699 /* TSBackgroundFetch.framework */; };
 		C929618E1E22D9B1007BC419 /* libRNBatteryStatus.a in Frameworks */ = {isa = PBXBuildFile; fileRef = C929618B1E22D9A4007BC419 /* libRNBatteryStatus.a */; };
@@ -212,6 +213,20 @@
 			remoteGlobalIDString = 835318541D52293F005738CD;
 			remoteInfo = RNBackgroundFetch;
 		};
+		C90396F11E23210B0001499C /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 000D871F357945B9AB13656C /* RNBatteryStatus.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = DF064C741B9F560F00FD9B52;
+			remoteInfo = RNBatteryStatus;
+		};
+		C90396F31E23210B0001499C /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 000D871F357945B9AB13656C /* RNBatteryStatus.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = DF064C7F1B9F560F00FD9B52;
+			remoteInfo = RNBatteryStatusTests;
+		};
 		C929618A1E22D9A4007BC419 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = C92961851E22D9A4007BC419 /* RNBatteryStatus.xcodeproj */;
@@ -229,6 +244,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		000D871F357945B9AB13656C /* RNBatteryStatus.xcodeproj */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = "wrapper.pb-project"; name = RNBatteryStatus.xcodeproj; path = "../node_modules/react-native-battery-status-ios/RNBatteryStatus.xcodeproj"; sourceTree = "<group>"; };
+		0040188E43904A839BD54C43 /* libRNBatteryStatus.a */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = archive.ar; path = libRNBatteryStatus.a; sourceTree = "<group>"; };
 		008F07F21AC5B25A0029DE68 /* main.jsbundle */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = main.jsbundle; sourceTree = "<group>"; };
 		00C302A71ABCB8CE00DB3ED1 /* RCTActionSheet.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = RCTActionSheet.xcodeproj; path = "../node_modules/react-native/Libraries/ActionSheetIOS/RCTActionSheet.xcodeproj"; sourceTree = "<group>"; };
 		00C302B51ABCB90400DB3ED1 /* RCTGeolocation.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = RCTGeolocation.xcodeproj; path = "../node_modules/react-native/Libraries/Geolocation/RCTGeolocation.xcodeproj"; sourceTree = "<group>"; };
@@ -279,6 +296,7 @@
 				139FDEF61B0652A700C62182 /* libRCTWebSocket.a in Frameworks */,
 				C929618E1E22D9B1007BC419 /* libRNBatteryStatus.a in Frameworks */,
 				F2D96169AA9EEEB6948C1049 /* libPods-BatteryShare.a in Frameworks */,
+				9D527B01C5364C99AF70638E /* libRNBatteryStatus.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -444,6 +462,7 @@
 				832341B01AAA6A8300B99B32 /* RCTText.xcodeproj */,
 				00C302DF1ABCB9EE00DB3ED1 /* RCTVibration.xcodeproj */,
 				139FDEE61B06529A00C62182 /* RCTWebSocket.xcodeproj */,
+				000D871F357945B9AB13656C /* RNBatteryStatus.xcodeproj */,
 			);
 			name = Libraries;
 			sourceTree = "<group>";
@@ -488,11 +507,13 @@
 			name = Products;
 			sourceTree = "<group>";
 		};
-		C11E557F1E230E7500294699 /* Frameworks */ = {
+		C90396D01E23210B0001499C /* Products */ = {
 			isa = PBXGroup;
 			children = (
+				C90396F21E23210B0001499C /* libRNBatteryStatus.a */,
+				C90396F41E23210B0001499C /* RNBatteryStatusTests.xctest */,
 			);
-			name = Frameworks;
+			name = Products;
 			sourceTree = "<group>";
 		};
 		C92961861E22D9A4007BC419 /* Products */ = {
@@ -610,6 +631,10 @@
 				{
 					ProductGroup = C92961861E22D9A4007BC419 /* Products */;
 					ProjectRef = C92961851E22D9A4007BC419 /* RNBatteryStatus.xcodeproj */;
+				},
+				{
+					ProductGroup = C90396D01E23210B0001499C /* Products */;
+					ProjectRef = 000D871F357945B9AB13656C /* RNBatteryStatus.xcodeproj */;
 				},
 			);
 			projectRoot = "";
@@ -802,6 +827,20 @@
 			remoteRef = C11E55751E23062D00294699 /* PBXContainerItemProxy */;
 			sourceTree = BUILT_PRODUCTS_DIR;
 		};
+		C90396F21E23210B0001499C /* libRNBatteryStatus.a */ = {
+			isa = PBXReferenceProxy;
+			fileType = archive.ar;
+			path = libRNBatteryStatus.a;
+			remoteRef = C90396F11E23210B0001499C /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		C90396F41E23210B0001499C /* RNBatteryStatusTests.xctest */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.cfbundle;
+			path = RNBatteryStatusTests.xctest;
+			remoteRef = C90396F31E23210B0001499C /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
 		C929618B1E22D9A4007BC419 /* libRNBatteryStatus.a */ = {
 			isa = PBXReferenceProxy;
 			fileType = archive.ar;
@@ -927,11 +966,18 @@
 				CURRENT_PROJECT_VERSION = 1;
 				DEAD_CODE_STRIPPING = NO;
 				DEVELOPMENT_TEAM = L3LVTK8RFF;
-				FRAMEWORK_SEARCH_PATHS = "$(PROJECT_DIR)/../node_modules/react-native-background-fetch/ios/**";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(PROJECT_DIR)/../node_modules/react-native-background-fetch/ios/**",
+					"$(inherited)",
+				);
 				GCC_NO_COMMON_BLOCKS = YES;
 				INFOPLIST_FILE = BatteryShare/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 8.4;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"\"$(SRCROOT)/BatteryShare\"",
+				);
 				OTHER_LDFLAGS = (
 					"$(inherited)",
 					"-ObjC",
@@ -951,11 +997,18 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = L3LVTK8RFF;
-				FRAMEWORK_SEARCH_PATHS = "$(PROJECT_DIR)/../node_modules/react-native-background-fetch/ios/**";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(PROJECT_DIR)/../node_modules/react-native-background-fetch/ios/**",
+					"$(inherited)",
+				);
 				GCC_NO_COMMON_BLOCKS = YES;
 				INFOPLIST_FILE = BatteryShare/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 8.4;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"\"$(SRCROOT)/BatteryShare\"",
+				);
 				OTHER_LDFLAGS = (
 					"$(inherited)",
 					"-ObjC",
